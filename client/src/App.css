@@ -1,0 +1,57 @@
+.App
+{
+  text-align: center;
+}
+
+.form
+{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input
+{
+  width: 15em;
+  height: 1em;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.form label
+{
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.form button
+{
+  width: 10em;
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.bookCard
+{
+  display: inline-flex;
+  flex-direction: row;
+  width: 20em;
+  height: 20em;
+  border: 0.5em solid gainsboro;
+  border-radius: 1em;
+  margin: 2em;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.container
+{
+  margin: 1em;
+}
+
+.container button
+{
+  margin: 1em;
+}
