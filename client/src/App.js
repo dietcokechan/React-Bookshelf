@@ -13,6 +13,8 @@ function App() {
 
   const [newReview, setNewReview] = useState('');
 
+  const [search, setSearch] = useState('');
+
   // Display all books
   useEffect(()=>
   {
@@ -61,33 +63,47 @@ function App() {
       <div id="nav">
         <h1>Bookshelf</h1>
         <div id="search">
-          <input type="text" placeholder="Search..." />
+            <input type="text" placeholder="Search..." onChange={(e)=>
+            {setSearch(e.target.value)}} />
         </div>
       </div>
       <div className='root'>
           <div className='wrapper'>
             <h1>Book List</h1>
-            {bookList.map((val)=>
+            {/* eslint-disable-next-line */}
+            {bookList.filter((val)=>
+            {
+                // eslint-disable-next-line
+                if(search == "")
+                {
+                    return val;
+                }
+                else if (val.title.toLowerCase().includes(search.toLowerCase()) || val.author.toLowerCase().includes(search.toLowerCase()) || val.genre.toLowerCase().includes(search.toLowerCase()))
+                {
+                    return val;
+                }
+            }).map((val)=>
             {
               const allBooks =
-              <div className='container'>
-                <div className='bookCard'>
-                  <h2>{val.title}</h2>
-                  <h3>{val.author}</h3>
-                  <p>Genre: {val.genre}</p>
-                  <p>Rating: {val.rating}</p>
-                  <p>Review: {val.review}</p>
-                  <input type='text' onChange={(e)=>{setNewReview(e.target.value)}} />
-                  <button onClick={()=> {updateBook(val.title)}}>Update</button>
-                  <button onClick={()=> {deleteBook(val.title)}}>Delete</button>
-                </div>
-            
-              </div>;
-              return allBooks;
+                (<div className='container'>
+                  <div className='bookCard'>
+                        <h2>{val.title}</h2>
+                        <h3>{val.author}</h3>
+                        <p>Genre: {val.genre}</p>
+                        <p>Rating: {val.rating}</p>
+                        <p>Review: {val.review}</p>
+                        <div className='editSection'>
+                            <input type='text' placeholder='Enter review...' onChange={(e)=>{setNewReview(e.target.value)}} />
+                            <button onClick={()=> {updateBook(val.title)}}>Update</button>
+                            <button onClick={()=> {deleteBook(val.title)}}>Delete</button>
+                        </div>
+                  </div>
+                </div>);
+                return allBooks;
             })}
           </div>
           <form className='form' onSubmit={
-            (e)=>{e.preventDefault(); 
+            (e)=>{e.preventDefault();
               e.target.reset()}
             }>
             <h2>Add New Book</h2>
