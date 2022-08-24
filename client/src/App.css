@@ -54,10 +54,17 @@ h1
 {
   padding: 1em;
   border: none;
-  width: fit-content;
+  width: 20em;
+  border-radius: 1em;
 }
 
-#nav ul
+#nav button
+{
+    width: fit-content;
+    height: fit-content;
+}
+
+/* #nav ul
 {
   margin: 5em;
   list-style: none;
@@ -80,7 +87,7 @@ h1
 #nav a:active
 {
   color: #F2AF5C;
-}
+} */
 
 /* ---- MAIN ---- */
 .App
@@ -88,6 +95,7 @@ h1
   display: flex;
   flex-flow: column wrap;
   padding: 2em;
+  font-size: 14px;
 }
 
 .root
@@ -107,17 +115,20 @@ h1
   background-color: white;
   border-radius: 2em;
   box-shadow: 0.1em 0.1em 0.5em;
-  margin: 3em;
+  margin: 2em;
   padding: 1em;
   height: fit-content;
+  width: max-content;
 }
 
 .form input
 {
-  width: 15em;
+  width: 20em;
   height: 1em;
   margin: 1em;
   padding: 0.5em;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 0.6em;
 }
 
 .form label
@@ -133,6 +144,7 @@ h1
   color: #D9A404;
   border-radius: 1em;
   padding: 0.5em;
+  cursor: pointer;
 }
 
 /* ---- BOOK CARDS ---- */
@@ -140,36 +152,46 @@ h1
 {
   display: inline-flex;
   flex-flow: row wrap;
-  white-space: wrap;
+  align-content: space-around;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: max-content;
   height: max-content;
-  padding: 1em;
 }
 
 .bookCard
 {
-  border-radius: 1em;
-  padding: 1em;
-  background-color: whitesmoke;
-  box-shadow: 0.2em 0.2em 0.4em;
+    flex-flow: column wrap;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0.5em;
+    background-color: whitesmoke;
+    box-shadow: 0.1em 0.1em 0.1em #593B02;
 }
 
 .bookCard button
 {
-  margin: 1em;
-  background-color: #593B02;
-  color: #D9A404;
-  border-radius: 1em;
-  padding: 0.5em;
+    background-color: rgb(150, 150, 150, 0%);
+    color: #D9A404;
+    padding: 0.2em;
+    margin: 0.2em;
+    cursor: pointer;
+    border: none;
+}
+
+.bookCard input
+{
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 0.6em;
+    padding: 0.4em;
 }
 
 .wrapper
 {
-  background-color: #517369;
-  padding: 1em;
-  justify-content: center;
-  border-radius: 2em;
-  box-shadow: 0.1em 0.1em 0.5em;
+    width: 94em;
+    background-color: #517369;
+    padding: 1em;
+    border-radius: 2em;
+    box-shadow: 0.5em 0.5em 1em rgb(150, 150, 150);
 }
