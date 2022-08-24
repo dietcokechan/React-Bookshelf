@@ -1,14 +1,115 @@
-.App
+/*
+---- Palette ----
+Green: 517369 
+Mustard: D9A404
+Brown: 593B02
+Beige: F2EDE4
+Orange: F2AF5C
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral&display=swap');
+
+/* ---- HTML ELEMENTS ---- */
+html
 {
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
+body
+{
+  background-color: #F2EDE4;
+  font-family: 'Spectral', serif;
+}
+
+h2, h3
+{
+  color: #593B02;
+}
+
+h1
+{
+  color: #D9A404;
+}
+
+/* ---- NAVIGATION BAR ---- */
+#nav
+{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+#nav h1
+{
+  font-size: 3.6em;
+}
+
+#search
+{
+  align-self: center;
+}
+
+#search input
+{
+  padding: 1em;
+  border: none;
+  width: fit-content;
+}
+
+#nav ul
+{
+  margin: 5em;
+  list-style: none;
+}
+
+#nav li
+{
+  display: inline;
+  margin: 1em;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+#nav a
+{
+  color: #593B02;
+  text-decoration: none;
+}
+
+#nav a:active
+{
+  color: #F2AF5C;
+}
+
+/* ---- MAIN ---- */
+.App
+{
+  display: flex;
+  flex-flow: column wrap;
+  padding: 2em;
+}
+
+.root
+{
+  display: inline-flex;
+  flex-direction: row;
+  padding: 2em;
+}
+
+/* ---- FORM ---- */
 .form
 {
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  background-color: white;
+  border-radius: 2em;
+  box-shadow: 0.1em 0.1em 0.5em;
+  margin: 3em;
+  padding: 1em;
+  height: fit-content;
 }
 
 .form input
@@ -27,31 +128,48 @@
 
 .form button
 {
-  width: 10em;
   margin: 1em;
+  background-color: #593B02;
+  color: #D9A404;
+  border-radius: 1em;
   padding: 0.5em;
+}
+
+/* ---- BOOK CARDS ---- */
+.container
+{
+  display: inline-flex;
+  flex-flow: row wrap;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: max-content;
+  height: max-content;
+  padding: 1em;
 }
 
 .bookCard
 {
-  display: inline-flex;
-  flex-direction: row;
-  width: 20em;
-  height: 20em;
-  border: 0.5em solid gainsboro;
   border-radius: 1em;
-  margin: 2em;
+  padding: 1em;
+  background-color: whitesmoke;
+  box-shadow: 0.2em 0.2em 0.4em;
+}
+
+.bookCard button
+{
+  margin: 1em;
+  background-color: #593B02;
+  color: #D9A404;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
+.wrapper
+{
+  background-color: #517369;
   padding: 1em;
   justify-content: center;
-  align-items: center;
-}
-
-.container
-{
-  margin: 1em;
-}
-
-.container button
-{
-  margin: 1em;
+  border-radius: 2em;
+  box-shadow: 0.1em 0.1em 0.5em;
 }

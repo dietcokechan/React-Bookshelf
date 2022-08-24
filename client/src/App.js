@@ -58,59 +58,69 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bookshelf</h1>
-
-      <form className='form' onSubmit={
-        (e)=>{e.preventDefault(); 
-        e.target.reset()}
-        }>
-
-        <label id='title'>Title</label>
-        <input type='text' name='title' onChange={
-          (e)=>{setTitle(e.target.value)}
-          } />
-
-        <label id='author'>Author</label>
-        <input type='text' name='author' onChange={
-          (e)=>{setAuthor(e.target.value)}
-          } />
-
-        <label id='genre'>Genre</label>
-        <input type='text' name='genre' onChange={
-          (e)=>{setGenre(e.target.value)}
-          } />
-
-        <label id='rating'>Rating</label>
-        <input type='number' name='rating' onChange={
-          (e)=>{setRating(e.target.value)}
-          } />
-
-        <label id='review'>Review</label>
-        <input type='review' name='review' onChange={
-          (e)=>{setReview(e.target.value)}
-          } />
-
-        <button onClick={submitBook}>Submit</button>
-      </form>
-
-      {bookList.map((val)=>
-      {
-        const allBooks =
-        <div className='bookCard'>
-          <div className='container'>
-            <h2>{val.title}</h2>
-            <h3>{val.author}</h3>
-            <p>Genre: {val.genre}</p>
-            <p>Rating: {val.rating}</p>
-            <p>Review: {val.review}</p>
-            <input type='text' onChange={(e)=>{setNewReview(e.target.value)}} />
-            <button onClick={()=> {updateBook(val.title)}}>Update</button>
-            <button onClick={()=> {deleteBook(val.title)}}>Delete</button>
+      <div id="nav">
+        <h1>Bookshelf</h1>
+        <div id="search">
+          <input type="text" placeholder="Search..." />
+        </div>
+      </div>
+      <div className='root'>
+          <div className='wrapper'>
+            <h1>Book List</h1>
+            {bookList.map((val)=>
+            {
+              const allBooks =
+              <div className='container'>
+                <div className='bookCard'>
+                  <h2>{val.title}</h2>
+                  <h3>{val.author}</h3>
+                  <p>Genre: {val.genre}</p>
+                  <p>Rating: {val.rating}</p>
+                  <p>Review: {val.review}</p>
+                  <input type='text' onChange={(e)=>{setNewReview(e.target.value)}} />
+                  <button onClick={()=> {updateBook(val.title)}}>Update</button>
+                  <button onClick={()=> {deleteBook(val.title)}}>Delete</button>
+                </div>
+            
+              </div>;
+              return allBooks;
+            })}
           </div>
+          <form className='form' onSubmit={
+            (e)=>{e.preventDefault(); 
+              e.target.reset()}
+            }>
+            <h2>Add New Book</h2>
 
-        </div>;
-          return allBooks;
-      })}
+            <label id='title'>Title</label>
+            <input type='text' name='title' autocomplete="off" onChange={
+              (e)=>{setTitle(e.target.value)}
+              } />
+
+            <label id='author'>Author</label>
+            <input type='text' name='author' autocomplete="off" onChange={
+              (e)=>{setAuthor(e.target.value)}
+              } />
+
+            <label id='genre'>Genre</label>
+            <input type='text' name='genre'
+            autocomplete="off" onChange={
+              (e)=>{setGenre(e.target.value)}
+              } />
+
+            <label id='rating'>Rating</label>
+            <input type='number' name='rating' onChange={
+              (e)=>{setRating(e.target.value)}
+              } />
+
+            <label id='review'>Review</label>
+            <input type='review' name='review' autocomplete="off" onChange={
+              (e)=>{setReview(e.target.value)}
+              } />
+
+            <button onClick={submitBook}>Add Book</button>
+          </form>
+      </div>
     </div>
   );
 }
